@@ -28,6 +28,7 @@
         android:required="true" />
     <uses-feature android:name="android.permission.SEND_SMS"
         android:required="true" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
