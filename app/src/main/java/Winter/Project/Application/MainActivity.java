@@ -18,14 +18,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.telephony.SmsManager;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 private Button button;
+public String phoneNumbers = "";
 public final int MY_PERMISSIONS_REQUESTS = 3;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		phoneNumbers = readFile();
 		//Checks permissions
 		if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
 				|| ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -73,7 +80,32 @@ public final int MY_PERMISSIONS_REQUESTS = 3;
 	}*/
 
 	/**
-	 * sends a
+	 * @return returns phonenumbers.
+	 */
+	public String readFile() {
+		try {
+			FileInputStream fileInputStream = openFileInput("PhoneNumbers.txt");
+			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+			StringBuffer stringBuffer = new StringBuffer();
+
+			String lines;
+			while ((lines = bufferedReader.readLine()) != null) {
+				stringBuffer.append(lines + "\n");
+			}
+
+			return stringBuffer.toString();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		throw new IllegalArgumentException();
+	}
+	/**
+	 * sends a SMS message.
 	 * @param phoneNumber message receiver.
 	 * @param message message.
 	 */
@@ -94,10 +126,7 @@ public final int MY_PERMISSIONS_REQUESTS = 3;
 
 		}
 	}
-	/**
-	 * sends and SMS message.
-	 * @param view idk.
-	 */
+
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == R.id.test2) {
