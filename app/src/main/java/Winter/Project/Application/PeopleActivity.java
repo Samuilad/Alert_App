@@ -1,5 +1,6 @@
 package Winter.Project.Application;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.telephony.SmsManager;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -62,7 +65,7 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 			FileOutputStream fileOutputStream = openFileOutput("PhoneNumbers.txt", MODE_PRIVATE);
 			fileOutputStream.write(input.getBytes());
 			fileOutputStream.close();
-			Toast.makeText(getApplicationContext(), "File saved", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getApplicationContext(), "File saved", Toast.LENGTH_SHORT).show();
 		} catch (FileNotFoundException e){
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -147,6 +150,7 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 	 */
 	public void contact() {
 		LinearLayout person = findViewById(R.id.person_info);
+		LinearLayout person2 = findViewById(R.id.linearLayout);
 
 		if (person.getVisibility() == View.VISIBLE) {
 			person.setVisibility(View.GONE);
@@ -154,6 +158,7 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 		if (person.getVisibility() == View.GONE) {
 			person.setVisibility(View.VISIBLE);
 		}
+		person2.setVisibility(View.GONE);
 	}
 
 
@@ -175,6 +180,7 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 		EditText contactName = findViewById(R.id.editName);
 		EditText contactPhone = findViewById(R.id.editPhone);
 		LinearLayout person = findViewById(R.id.person_info);
+		LinearLayout person2 = findViewById(R.id.linearLayout);
 		person.setVisibility(View.GONE);
 		if (contactName.length() == 0 || contactPhone.length() != 10) {
 			Toast.makeText(PeopleActivity.this, "Field(s) Empty or Invalid Phone #", Toast.LENGTH_SHORT).show();
@@ -191,13 +197,12 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 				}
 			}
 			phoneNumbers = "";
-			System.out.println(phoneNumbers);
 			for (String key : contacts.keySet()) {
 				phoneNumbers += contacts.get(key) + "/";
 			}
-			System.out.println(phoneNumbers);
 			writeFile(phoneNumbers);
 		}
+		person2.setVisibility(View.VISIBLE);
 	}
 
 
@@ -215,12 +220,17 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 			getContact(8).setVisibility(View.VISIBLE);
 		}
 		if (view.getId() == R.id.button2) {
-			System.out.println(phoneNumbers);
-			phoneNumbers = "";
-			System.out.println(phoneNumbers);
-			for (TextView contact : getContactList()) {
-				contact.setText("");
-			}
+			AlertDialog.Builder builder = new AlertDialog.Builder(this)
+					.setMessage("Are you sure you want to remove all contacts?")
+					.setPositiveButton("Okay", (dialog, which) -> {
+						phoneNumbers = "";
+						writeFile(phoneNumbers);
+						for (TextView contact : getContactList()) {
+							contact.setText("");
+						}
+					})
+					.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
+			builder.show();
 		}
 	}
 }
