@@ -4,29 +4,224 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:visibility="visible">
+
+    <Button
+        android:id="@+id/Custom"
+        android:layout_width="168dp"
+        android:layout_height="92dp"
+        android:text="Custom Scenario"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.438" />
 
     <Button
         android:id="@+id/sendTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="159dp"
-        android:text="Send To"
+        android:layout_width="168dp"
+        android:layout_height="92dp"
+        android:text="Contacts"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.649" />
 
     <Button
-        android:id="@+id/test2"
+        android:id="@+id/changeEmergency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:text="Button"
+        android:text="Change Emergency Preferences"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.847" />
+
+    <Button
+        android:id="@+id/Emergency"
+        android:layout_width="400dp"
+        android:layout_height="222dp"
+        android:text="Emergency"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/checkMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
+
+    <Button
+        android:id="@+id/changeCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Custom Scenario Preferences"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
+
+    <Button
+        android:id="@+id/changePrefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Preferences"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802"
+        tools:text="Change Preferences" />
+
+    <LinearLayout
+        android:id="@+id/ChangeC"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mainScreen2"
+        android:layout_width="412dp"
+        android:layout_height="733dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/spacer"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/imOkay"
+            android:layout_width="238dp"
+            android:layout_height="166dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="I Am Okay"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/countDown"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:text="Timer"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/immediately"
+            android:layout_width="250dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Send Message Immediately"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/changeEM"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/changeEMInstruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Would you like to change the message and check in timer?"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/currentEMM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Message: I might be in a possible emergency situation. Please check up on me"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/CurrentCheckTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current checkIn Timer: 30 minutes"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/changeYes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/changeNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/editMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Custom Message"
+            android:inputType="textPersonName"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/editCheckInTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Check-In Timer"
+            android:inputType="number"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:visibility="visible" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

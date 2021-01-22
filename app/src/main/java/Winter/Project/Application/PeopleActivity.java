@@ -1,4 +1,4 @@
-package Winter.Project.Application;
+   package Winter.Project.Application;
 
 import android.Manifest;
 import android.app.Activity;
@@ -97,7 +97,7 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		throw new IllegalArgumentException();
+		return "";
 	}
 
 
@@ -204,7 +204,6 @@ public class PeopleActivity extends AppCompatActivity implements View.OnClickLis
 		}
 		person2.setVisibility(View.VISIBLE);
 	}
-
 
 	@Override
 	public void onClick(View view) {
